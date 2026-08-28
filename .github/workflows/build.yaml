@@ -13,14 +13,14 @@ on:
         type: choice
         options:
           - all
-          - android
           - windows
           - linux
           - macos
+          - android
       env_type:
-        description: 'Environment type'
+        description: 'Environment type (PRE / DEV / STABLE)'
         required: true
-        default: 'pre'
+        default: 'stable'
         type: choice
         options:
           - pre
@@ -31,34 +31,27 @@ env:
   FLUTTER_VERSION: '3.44.4'
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - platform: android
-            os: ubuntu-latest
-          - platform: windows
-            os: windows-2022
-            arch: amd64
-          - platform: linux
-            os: ubuntu-22.04
-            arch: amd64
-          - platform: macos
-            os: macos-latest
-            arch: arm64
-
-    # 关键修复：根据输入的 platform 过滤
+  #############################
+  # WINDOWS
+  #############################
+  build-windows:
+    name: Build Windows
+    runs-on: windows-2022
     if: |
+      github.event_name == 'push' ||
       github.event.inputs.platform == 'all' ||
-      github.event.inputs.platform == matrix.platform
-
+      github.event.inputs.platform == 'windows'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.4'
+          cache-dependency-path: core/go.sum
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -67,26 +60,203 @@ jobs:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
 
+      - name: Enable git long paths
+        run: git config --global core.longpaths true
+
+      - name: Get Flutter Dependencies
+        run: flutter pub get
+
+      - name: Setup (zip only - skip exe)
+        run: dart setup.dart windows --env ${{ github.event.inputs.env_type }} --targets zip -v
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-windows-amd64
+          path: ./dist
+          overwrite: true
+
+  #############################
+  # LINUX
+  #############################
+  build-linux:
+    name: Build Linux
+    runs-on: ubuntu-22.04
+    if: |
+      github.event_name == 'push' ||
+      github.event.inputs.platform == 'all' ||
+      github.event.inputs.platform == 'linux'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
           go-version: '1.26.4'
           cache-dependency-path: core/go.sum
 
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+
+      - name: Install Linux dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libayatana-appindicator3-dev \
+            libkeybinder-3.0-dev \
+            ninja-build \
+            libgtk-3-dev
+
       - name: Get Flutter Dependencies
         run: flutter pub get
 
-      - name: Setup (Windows - zip only)
-        if: matrix.platform == 'windows'
-        run: dart setup.dart windows --env ${{ github.event.inputs.env_type }} --targets zip -v
-
-      - name: Setup (Other platforms)
-        if: matrix.platform != 'windows'
-        run: dart setup.dart ${{ matrix.platform }} --env ${{ github.event.inputs.env_type }} -v
+      - name: Setup
+        run: dart setup.dart linux --env ${{ github.event.inputs.env_type }} -v
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: artifact-${{ matrix.platform }}${{ matrix.arch && format('-{0}', matrix.arch) || '' }}
+          name: artifact-linux-amd64
           path: ./dist
           overwrite: true
+
+  #############################
+  # MACOS
+  #############################
+  build-macos:
+    name: Build macOS
+    runs-on: macos-latest
+    if: |
+      github.event_name == 'push' ||
+      github.event.inputs.platform == 'all' ||
+      github.event.inputs.platform == 'macos'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.4'
+          cache-dependency-path: core/go.sum
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+
+      - name: Get Flutter Dependencies
+        run: flutter pub get
+
+      - name: Setup
+        run: dart setup.dart macos --env ${{ github.event.inputs.env_type }} -v
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-macos-arm64
+          path: ./dist
+          overwrite: true
+
+  #############################
+  # ANDROID
+  #############################
+  build-android:
+    name: Build Android
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'push' ||
+      github.event.inputs.platform == 'all' ||
+      github.event.inputs.platform == 'android'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.4'
+          cache-dependency-path: core/go.sum
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+
+      - name: Setup NDK
+        uses: nttld/setup-ndk@v1
+        with:
+          ndk-version: r28c
+          add-to-path: true
+          link-to-sdk: true
+
+      - name: Get Flutter Dependencies
+        run: flutter pub get
+
+      - name: Setup
+        run: dart setup.dart android --env ${{ github.event.inputs.env_type }} -v
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-android
+          path: ./dist
+          overwrite: true
+
+  #############################
+  # UPLOAD RELEASE (only on tag push)
+  #############################
+  upload:
+    name: Create Release
+    runs-on: ubuntu-latest
+    needs:
+      - build-windows
+      - build-linux
+      - build-macos
+      - build-android
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./dist/
+          pattern: artifact-*
+          merge-multiple: true
+
+      - name: List artifacts
+        run: ls -la ./dist/
+
+      - name: Generate SHA256 checksums
+        run: |
+          cd ./dist
+          sha256sum ./* > SHA256SUMS
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ./dist/*
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ contains(github.ref, '-') }}
