@@ -8,7 +8,7 @@ on:
     inputs:
       platform:
         description: 'Platform to build'
-        required: false
+        required: true
         default: 'all'
         type: choice
         options:
@@ -17,6 +17,15 @@ on:
           - windows
           - linux
           - macos
+      env_type:
+        description: 'Environment type'
+        required: true
+        default: 'pre'
+        type: choice
+        options:
+          - pre
+          - dev
+          - stable
 
 env:
   FLUTTER_VERSION: '3.44.4'
@@ -25,6 +34,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         include:
           - platform: android
@@ -38,6 +48,11 @@ jobs:
           - platform: macos
             os: macos-latest
             arch: arm64
+
+    # 关键修复：根据输入的 platform 过滤
+    if: |
+      github.event.inputs.platform == 'all' ||
+      github.event.inputs.platform == matrix.platform
 
     steps:
       - name: Checkout
@@ -63,11 +78,11 @@ jobs:
 
       - name: Setup (Windows - zip only)
         if: matrix.platform == 'windows'
-        run: dart setup.dart windows --targets zip -v
+        run: dart setup.dart windows --env ${{ github.event.inputs.env_type }} --targets zip -v
 
       - name: Setup (Other platforms)
         if: matrix.platform != 'windows'
-        run: dart setup.dart ${{ matrix.platform }} -v
+        run: dart setup.dart ${{ matrix.platform }} --env ${{ github.event.inputs.env_type }} -v
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
