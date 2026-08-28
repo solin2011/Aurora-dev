@@ -1,4 +1,4 @@
-package com.follow.clash.service.modules
+package com.aurora.vpn.service.modules
 
 import android.app.Notification.FOREGROUND_SERVICE_IMMEDIATE
 import android.app.Service
@@ -8,18 +8,18 @@ import android.os.Build
 import android.os.PowerManager
 import androidx.core.app.NotificationCompat
 import androidx.core.content.getSystemService
-import com.follow.clash.common.Components
-import com.follow.clash.common.GlobalState
-import com.follow.clash.common.QuickAction
-import com.follow.clash.common.quickIntent
-import com.follow.clash.common.receiveBroadcastFlow
-import com.follow.clash.common.startForeground
-import com.follow.clash.common.toPendingIntent
-import com.follow.clash.core.Core
-import com.follow.clash.service.R
-import com.follow.clash.service.ServiceConfig
-import com.follow.clash.service.models.NotificationParams
-import com.follow.clash.service.models.getSpeedTrafficText
+import com.aurora.vpn.common.Components
+import com.aurora.vpn.common.GlobalState
+import com.aurora.vpn.common.QuickAction
+import com.aurora.vpn.common.quickIntent
+import com.aurora.vpn.common.receiveBroadcastFlow
+import com.aurora.vpn.common.startForeground
+import com.aurora.vpn.common.toPendingIntent
+import com.aurora.vpn.core.Core
+import com.aurora.vpn.service.R
+import com.aurora.vpn.service.ServiceConfig
+import com.aurora.vpn.service.models.NotificationParams
+import com.aurora.vpn.service.models.getSpeedTrafficText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.combine

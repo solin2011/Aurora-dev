@@ -1,4 +1,4 @@
-package com.follow.clash.common
+package com.aurora.vpn.common
 
 import android.app.Application
 import android.util.Log

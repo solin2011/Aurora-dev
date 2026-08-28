@@ -1,7 +1,7 @@
-package com.follow.clash.service
+package com.aurora.vpn.service
 
-import com.follow.clash.service.models.NotificationParams
-import com.follow.clash.service.models.VpnOptions
+import com.aurora.vpn.service.models.NotificationParams
+import com.aurora.vpn.service.models.VpnOptions
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 

@@ -50,11 +50,11 @@ on Mobile:
 支持下列操作
 
    ```bash
-    com.follow.clash.action.START
+    com.aurora.vpn.action.START
     
-    com.follow.clash.action.STOP
+    com.aurora.vpn.action.STOP
     
-    com.follow.clash.action.TOGGLE
+    com.aurora.vpn.action.TOGGLE
    ```
 
 ## Download

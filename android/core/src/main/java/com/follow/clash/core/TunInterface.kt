@@ -1,4 +1,4 @@
-package com.follow.clash.core
+package com.aurora.vpn.core
 
 import androidx.annotation.Keep
 

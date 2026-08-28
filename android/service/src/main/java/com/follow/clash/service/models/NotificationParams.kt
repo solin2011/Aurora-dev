@@ -1,4 +1,4 @@
-package com.follow.clash.service.models
+package com.aurora.vpn.service.models
 
 data class NotificationParams(
     val title: String = "FlClash",

@@ -1,9 +1,9 @@
-package com.follow.clash.common
+package com.aurora.vpn.common
 
 import android.content.ComponentName
 
 object Components {
-    const val PACKAGE_NAME = "com.follow.clash"
+    const val PACKAGE_NAME = "com.aurora.vpn"
 
     val mainActivity =
         ComponentName(GlobalState.packageName, "${PACKAGE_NAME}.MainActivity")

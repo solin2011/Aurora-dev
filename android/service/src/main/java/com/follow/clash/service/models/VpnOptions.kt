@@ -1,6 +1,6 @@
-package com.follow.clash.service.models
+package com.aurora.vpn.service.models
 
-import com.follow.clash.common.AccessControlMode
+import com.aurora.vpn.common.AccessControlMode
 import java.net.Inet4Address
 import java.net.Inet6Address
 import java.net.InetAddress

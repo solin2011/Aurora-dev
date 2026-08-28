@@ -1,9 +1,9 @@
-package com.follow.clash.service
+package com.aurora.vpn.service
 
 import android.app.Service
-import com.follow.clash.common.BroadcastAction
-import com.follow.clash.common.GlobalState
-import com.follow.clash.common.sendBroadcast
+import com.aurora.vpn.common.BroadcastAction
+import com.aurora.vpn.common.GlobalState
+import com.aurora.vpn.common.sendBroadcast
 
 interface ManagedService {
     fun start()

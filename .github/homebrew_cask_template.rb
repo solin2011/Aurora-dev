@@ -28,12 +28,12 @@ cask "flclash" do
                    args: ["-rd", "com.apple.quarantine", "#{appdir}/FlClash.app"]
   end
 
-  uninstall quit: "com.follow.clash"
+  uninstall quit: "com.aurora.vpn"
 
   zap trash: [
-    "~/Library/Application Support/com.follow.clash",
-    "~/Library/Caches/com.follow.clash",
-    "~/Library/Preferences/com.follow.clash.plist",
-    "~/Library/Saved Application State/com.follow.clash.savedState",
+    "~/Library/Application Support/com.aurora.vpn",
+    "~/Library/Caches/com.aurora.vpn",
+    "~/Library/Preferences/com.aurora.vpn.plist",
+    "~/Library/Saved Application State/com.aurora.vpn.savedState",
   ]
 end

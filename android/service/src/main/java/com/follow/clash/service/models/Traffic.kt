@@ -1,7 +1,7 @@
-package com.follow.clash.service.models
+package com.aurora.vpn.service.models
 
-import com.follow.clash.common.GlobalState
-import com.follow.clash.core.Core
+import com.aurora.vpn.common.GlobalState
+import com.aurora.vpn.core.Core
 import com.google.gson.Gson
 
 private val gson = Gson()

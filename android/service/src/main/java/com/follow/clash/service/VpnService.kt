@@ -1,4 +1,4 @@
-package com.follow.clash.service
+package com.aurora.vpn.service
 
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -8,16 +8,16 @@ import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.core.content.getSystemService
-import com.follow.clash.common.AccessControlMode
-import com.follow.clash.common.GlobalState
-import com.follow.clash.common.R as CommonR
-import com.follow.clash.core.Core
-import com.follow.clash.service.models.CIDR
-import com.follow.clash.service.models.VpnOptions
-import com.follow.clash.service.models.getIpv4RouteAddress
-import com.follow.clash.service.models.getIpv6RouteAddress
-import com.follow.clash.service.models.toCIDR
-import com.follow.clash.service.modules.ServiceModules
+import com.aurora.vpn.common.AccessControlMode
+import com.aurora.vpn.common.GlobalState
+import com.aurora.vpn.common.R as CommonR
+import com.aurora.vpn.core.Core
+import com.aurora.vpn.service.models.CIDR
+import com.aurora.vpn.service.models.VpnOptions
+import com.aurora.vpn.service.models.getIpv4RouteAddress
+import com.aurora.vpn.service.models.getIpv6RouteAddress
+import com.aurora.vpn.service.models.toCIDR
+import com.aurora.vpn.service.modules.ServiceModules
 import java.net.InetSocketAddress
 import java.util.concurrent.ConcurrentHashMap
 import android.net.VpnService as SystemVpnService
