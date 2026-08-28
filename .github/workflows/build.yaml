@@ -4,14 +4,39 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: 'Platform to build (leave empty for all)'
+        required: false
+        default: ''
+        type: choice
+        options:
+          - ''
+          - android
+          - windows
+          - linux
+          - macos
+      env_type:
+        description: 'Environment type'
+        required: false
+        default: 'pre'
+        type: choice
+        options:
+          - pre
+          - stable
+          - dev
+
 env:
-  IS_STABLE: ${{ !contains(github.ref, '-') }}
+  IS_STABLE: ${{ github.event.inputs.env_type == 'stable' || (!contains(github.ref, '-') && github.event.inputs.env_type != 'dev' && github.event.inputs.env_type != 'pre') }}
   FLUTTER_VERSION: '3.44.4'
 
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    # 如果是手动触发且指定了平台，跳过 test 直接构建
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.platform == ''
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -92,6 +117,8 @@ jobs:
   windows-helper-test:
     name: Windows helper test
     runs-on: windows-2022
+    # 如果是手动触发且指定了平台，跳过 test
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.platform == ''
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -103,7 +130,9 @@ jobs:
         run: cargo test --manifest-path services/helper/Cargo.toml --features windows-service
 
   build:
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    if: |
+      (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')) ||
+      (github.event_name == 'workflow_dispatch')
     needs: [ test, windows-helper-test ]
     runs-on: ${{ matrix.os }}
     strategy:
@@ -126,6 +155,10 @@ jobs:
           - platform: linux
             os: ubuntu-24.04-arm
             arch: arm64
+    # 如果手动触发且指定了平台，只构建指定平台
+    if: |
+      (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')) ||
+      (github.event_name == 'workflow_dispatch' && (github.event.inputs.platform == '' || github.event.inputs.platform == matrix.platform))
 
     steps:
       - name: Checkout
@@ -199,7 +232,7 @@ jobs:
           overwrite: true
 
   changelog:
-    if: ${{ !contains(github.ref, '-') }}
+    if: ${{ !contains(github.ref, '-') && github.event_name != 'workflow_dispatch' }}
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -254,6 +287,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   upload:
+    if: github.event_name != 'workflow_dispatch' || github.event.inputs.platform == ''
     permissions:
       contents: write
     needs: [ build ]
