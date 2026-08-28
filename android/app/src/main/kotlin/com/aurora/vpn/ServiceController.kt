@@ -1,4 +1,4 @@
-package com.follow.clash
+package com.aurora.vpn
 
 import android.content.ComponentName
 import android.content.Context
@@ -7,14 +7,14 @@ import android.content.ServiceConnection
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
-import com.follow.clash.common.GlobalState
-import com.follow.clash.common.intent
-import com.follow.clash.core.Core
-import com.follow.clash.service.ManagedService
-import com.follow.clash.service.ProxyService
-import com.follow.clash.service.ServiceConfig
-import com.follow.clash.service.VpnService
-import com.follow.clash.service.models.VpnOptions
+import com.aurora.vpn.common.GlobalState
+import com.aurora.vpn.common.intent
+import com.aurora.vpn.core.Core
+import com.aurora.vpn.service.ManagedService
+import com.aurora.vpn.service.ProxyService
+import com.aurora.vpn.service.ServiceConfig
+import com.aurora.vpn.service.VpnService
+import com.aurora.vpn.service.models.VpnOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filterNotNull

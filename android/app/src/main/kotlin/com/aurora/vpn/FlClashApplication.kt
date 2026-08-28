@@ -1,8 +1,8 @@
-package com.follow.clash
+package com.aurora.vpn
 
 import android.app.Application
 import android.content.Context
-import com.follow.clash.common.GlobalState
+import com.aurora.vpn.common.GlobalState
 
 class FlClashApplication : Application() {
     override fun attachBaseContext(base: Context?) {

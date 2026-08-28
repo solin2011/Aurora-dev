@@ -1,4 +1,4 @@
-package com.follow.clash.models
+package com.aurora.vpn.models
 
 data class InstalledPackage(
     val packageName: String,

@@ -1,13 +1,13 @@
-package com.follow.clash
+package com.aurora.vpn
 
 import android.net.VpnService
-import com.follow.clash.common.GlobalState
-import com.follow.clash.models.SharedState
-import com.follow.clash.plugins.AppPlugin
-import com.follow.clash.plugins.TilePlugin
-import com.follow.clash.service.ServiceConfig
-import com.follow.clash.service.models.NotificationParams
-import com.follow.clash.service.models.VpnOptions
+import com.aurora.vpn.common.GlobalState
+import com.aurora.vpn.models.SharedState
+import com.aurora.vpn.plugins.AppPlugin
+import com.aurora.vpn.plugins.TilePlugin
+import com.aurora.vpn.service.ServiceConfig
+import com.aurora.vpn.service.models.NotificationParams
+import com.aurora.vpn.service.models.VpnOptions
 import com.google.gson.Gson
 import io.flutter.embedding.engine.FlutterEngine
 import java.util.concurrent.atomic.AtomicReference

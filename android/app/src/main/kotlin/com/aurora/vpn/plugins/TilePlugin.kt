@@ -1,7 +1,7 @@
-package com.follow.clash.plugins
+package com.aurora.vpn.plugins
 
-import com.follow.clash.common.Components
-import com.follow.clash.invokeMethodOnMainThread
+import com.aurora.vpn.common.Components
+import com.aurora.vpn.invokeMethodOnMainThread
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel

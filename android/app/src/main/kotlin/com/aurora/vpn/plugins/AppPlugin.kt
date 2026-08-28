@@ -1,4 +1,4 @@
-package com.follow.clash.plugins
+package com.aurora.vpn.plugins
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -17,14 +17,14 @@ import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
 import androidx.core.net.toUri
-import com.follow.clash.R
-import com.follow.clash.common.Components
-import com.follow.clash.common.GlobalState
-import com.follow.clash.common.QuickAction
-import com.follow.clash.common.quickIntent
-import com.follow.clash.getPackageIconPath
-import com.follow.clash.packages.PackageResolver
-import com.follow.clash.showToast
+import com.aurora.vpn.R
+import com.aurora.vpn.common.Components
+import com.aurora.vpn.common.GlobalState
+import com.aurora.vpn.common.QuickAction
+import com.aurora.vpn.common.quickIntent
+import com.aurora.vpn.getPackageIconPath
+import com.aurora.vpn.packages.PackageResolver
+import com.aurora.vpn.showToast
 import com.google.gson.Gson
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware

@@ -1,6 +1,6 @@
-package com.follow.clash.models
+package com.aurora.vpn.models
 
-import com.follow.clash.service.models.VpnOptions
+import com.aurora.vpn.service.models.VpnOptions
 import com.google.gson.annotations.SerializedName
 
 data class SharedState(

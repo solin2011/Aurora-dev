@@ -1,9 +1,9 @@
-package com.follow.clash.plugins
+package com.aurora.vpn.plugins
 
-import com.follow.clash.ServiceController
-import com.follow.clash.ServiceState
-import com.follow.clash.common.Components
-import com.follow.clash.models.SharedState
+import com.aurora.vpn.ServiceController
+import com.aurora.vpn.ServiceState
+import com.aurora.vpn.common.Components
+import com.aurora.vpn.models.SharedState
 import com.google.gson.Gson
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall

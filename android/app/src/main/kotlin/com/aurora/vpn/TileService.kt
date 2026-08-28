@@ -1,11 +1,11 @@
-package com.follow.clash
+package com.aurora.vpn
 
 import android.annotation.SuppressLint
 import android.os.Build
 import android.service.quicksettings.Tile
-import com.follow.clash.common.QuickAction
-import com.follow.clash.common.quickIntent
-import com.follow.clash.common.toPendingIntent
+import com.aurora.vpn.common.QuickAction
+import com.aurora.vpn.common.quickIntent
+import com.aurora.vpn.common.toPendingIntent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

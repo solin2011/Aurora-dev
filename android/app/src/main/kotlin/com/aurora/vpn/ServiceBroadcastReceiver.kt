@@ -1,13 +1,13 @@
-package com.follow.clash
+package com.aurora.vpn
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
-import com.follow.clash.common.BroadcastAction
-import com.follow.clash.common.GlobalState
-import com.follow.clash.common.action
+import com.aurora.vpn.common.BroadcastAction
+import com.aurora.vpn.common.GlobalState
+import com.aurora.vpn.common.action
 import java.util.concurrent.atomic.AtomicBoolean
 import kotlinx.coroutines.launch
 
