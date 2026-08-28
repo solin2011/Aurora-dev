@@ -123,23 +123,11 @@ jobs:
           - platform: macos
             os: macos-latest
             arch: arm64
-          - platform: windows
-            os: windows-11-arm
-            arch: arm64
           - platform: linux
             os: ubuntu-24.04-arm
             arch: arm64
 
     steps:
-      - name: Setup rust
-        if: startsWith(matrix.os, 'windows-11-arm')
-        shell: pwsh
-        run: |
-          Invoke-WebRequest -Uri "https://win.rustup.rs/aarch64" -OutFile rustup-init.exe
-          .\rustup-init.exe -y --default-toolchain stable
-          $cargoPath = "$env:USERPROFILE\.cargo\bin"
-          Add-Content $env:GITHUB_PATH $cargoPath
-
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -193,7 +181,14 @@ jobs:
           flutter --version
           flutter pub get
 
-      - name: Setup
+      # Windows 平台：只生成 zip 压缩包，跳过 exe 安装包
+      - name: Setup (Windows - zip only)
+        if: startsWith(matrix.platform,'windows')
+        run: dart setup.dart ${{ matrix.platform }} ${{ env.IS_STABLE == 'true' && '--env stable' || '' }} -v --targets zip
+
+      # 其他平台：正常构建
+      - name: Setup (Other platforms)
+        if: startsWith(matrix.platform,'windows') != true
         run: dart setup.dart ${{ matrix.platform }} ${{ env.IS_STABLE == 'true' && '--env stable' || '' }} -v
 
       - name: Upload
@@ -236,7 +231,7 @@ jobs:
               awk '!/Update changelog/ && NF {print "- " $0 "\n"}' >> "$temp"
           done
           [ -f CHANGELOG.md ] && cat CHANGELOG.md >> "$temp"
-          
+
           mv "$temp" CHANGELOG.md
 
       - name: Commit
@@ -292,6 +287,7 @@ jobs:
               sed -nE 's/.*"tag_name": "([^"]+)".*/\1/p'
           )
           bash .github/scripts/generate_release_notes.sh "$pre_tag" release.md
+
       - name: Push to telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
