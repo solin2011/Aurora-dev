@@ -1,8 +1,8 @@
-package com.follow.clash
+package com.aurora.vpn
 
-import com.follow.clash.plugins.AppPlugin
-import com.follow.clash.plugins.ServicePlugin
-import com.follow.clash.plugins.TilePlugin
+import com.aurora.vpn.plugins.AppPlugin
+import com.aurora.vpn.plugins.ServicePlugin
+import com.aurora.vpn.plugins.TilePlugin
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 
