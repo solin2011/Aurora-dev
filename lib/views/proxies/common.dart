@@ -1,9 +1,9 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/core/core.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/core/core.dart';
+import 'package:aurora/enum/enum.dart';
+import 'package:aurora/models/models.dart';
+import 'package:aurora/providers/providers.dart';
+import 'package:aurora/state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 double get listHeaderHeight {

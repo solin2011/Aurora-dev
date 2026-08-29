@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:fl_clash/pages/error.dart';
-import 'package:fl_clash/state.dart';
+import 'package:aurora/pages/error.dart';
+import 'package:aurora/state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rust_api/rust_api.dart';
@@ -18,7 +18,7 @@ Future<void> main() async {
     }
     final version = await system.init();
     final container = await globalState.init(version);
-    HttpOverrides.global = FlClashHttpOverrides();
+    HttpOverrides.global = AuroraHttpOverrides();
     runApp(
       UncontrolledProviderScope(
         container: container,

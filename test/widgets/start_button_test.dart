@@ -1,9 +1,9 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/views/dashboard/widgets/start_button.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/l10n/l10n.dart';
+import 'package:aurora/models/models.dart';
+import 'package:aurora/providers/providers.dart';
+import 'package:aurora/state.dart';
+import 'package:aurora/views/dashboard/widgets/start_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

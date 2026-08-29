@@ -1,12 +1,12 @@
 import 'dart:ui' as ui;
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/common/theme.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/models/common.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/common/theme.dart';
+import 'package:aurora/l10n/l10n.dart';
+import 'package:aurora/models/common.dart';
+import 'package:aurora/providers/app.dart';
+import 'package:aurora/state.dart';
+import 'package:aurora/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

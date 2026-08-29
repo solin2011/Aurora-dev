@@ -1,8 +1,8 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/core/controller.dart';
-import 'package:fl_clash/core/method.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/core/controller.dart';
+import 'package:aurora/core/method.dart';
+import 'package:aurora/models/models.dart';
+import 'package:aurora/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:super_sliver_list/super_sliver_list.dart';

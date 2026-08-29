@@ -1,6 +1,6 @@
-import 'package:fl_clash/common/context.dart';
-import 'package:fl_clash/views/config/general.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:aurora/common/context.dart';
+import 'package:aurora/views/config/general.dart';
+import 'package:aurora/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ConfigView extends StatelessWidget {

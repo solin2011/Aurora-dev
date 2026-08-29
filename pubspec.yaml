@@ -1,5 +1,5 @@
-name: fl_clash
-description: A beautiful and user-friendly Clash Meta GUI client, forked from FlClash.
+name: aurora
+description: A beautiful and user-friendly Clash Meta GUI client, forked from Aurora.
 publish_to: 'none'
 version: 0.9.0+1
 environment:

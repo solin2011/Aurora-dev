@@ -1,4 +1,4 @@
-display_name: FlClash
+display_name: Aurora
 
 packager: chen08209
 packagerEmail: chen08209@gmail.com
@@ -14,12 +14,12 @@ requires:
   - libsecret
 
 keywords:
-  - FlClash
+  - Aurora
   - Clash
   - ClashMeta
   - Proxy
 
-generic_name: FlClash
+generic_name: Aurora
 
 group: Applications/Internet
 

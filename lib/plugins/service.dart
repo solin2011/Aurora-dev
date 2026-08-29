@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:isolate';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/core/event.dart';
-import 'package:fl_clash/core/method.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/core/event.dart';
+import 'package:aurora/core/method.dart';
+import 'package:aurora/enum/enum.dart';
+import 'package:aurora/models/models.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 

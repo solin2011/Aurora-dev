@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/plugins/app.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/enum/enum.dart';
+import 'package:aurora/plugins/app.dart';
+import 'package:aurora/providers/providers.dart';
+import 'package:aurora/state.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wifi_ssid/wifi_ssid_manager.dart';

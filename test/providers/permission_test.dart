@@ -1,7 +1,7 @@
-import 'package:fl_clash/common/permission.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/state.dart';
+import 'package:aurora/common/permission.dart';
+import 'package:aurora/providers/app.dart';
+import 'package:aurora/providers/config.dart';
+import 'package:aurora/state.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:riverpod/riverpod.dart';

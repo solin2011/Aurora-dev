@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/plugins/service.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/plugins/service.dart';
+import 'package:aurora/providers/providers.dart';
+import 'package:aurora/state.dart';
 
 import 'desktop/model.dart';
 import 'interface.dart';

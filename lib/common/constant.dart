@@ -4,20 +4,20 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:collection/collection.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/enum/enum.dart';
+import 'package:aurora/models/models.dart';
 import 'package:flutter/material.dart';
 
 const appName = 'Aurora';
-const appHelperService = 'FlClashHelperService';
+const appHelperService = 'AuroraHelperService';
 const coreManifestName = 'manifest.json';
 const coreName = 'clash.meta';
 const browserUa =
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 const packageName = 'com.aurora.vpn';
-final unixSocketPath = '/tmp/FlClashSocket_${Random().nextInt(10000)}.sock';
-final windowsPipeName = '\\\\.\\pipe\\FlClashCore_${_randomPipeId()}';
+final unixSocketPath = '/tmp/AuroraSocket_${Random().nextInt(10000)}.sock';
+final windowsPipeName = '\\\\.\\pipe\\AuroraCore_${_randomPipeId()}';
 const helperPort = 47890;
 const helperProtocolVersionHeader = 'x-flclash-helper-protocol';
 const helperProtocolVersion = '6';
@@ -127,9 +127,9 @@ double getWidgetHeight(num lines) {
 
 const maxLength = 1000;
 
-const mainIsolate = 'FlClashMainIsolate';
+const mainIsolate = 'AuroraMainIsolate';
 
-const serviceIsolate = 'FlClashServiceIsolate';
+const serviceIsolate = 'AuroraServiceIsolate';
 
 const defaultPrimaryColors = [
   0xFF795548,

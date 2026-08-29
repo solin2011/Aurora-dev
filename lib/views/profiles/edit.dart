@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/core/controller.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/pages/editor.dart';
-import 'package:fl_clash/providers/action.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/widgets/widgets.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/core/controller.dart';
+import 'package:aurora/enum/enum.dart';
+import 'package:aurora/models/models.dart';
+import 'package:aurora/pages/editor.dart';
+import 'package:aurora/providers/action.dart';
+import 'package:aurora/state.dart';
+import 'package:aurora/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class EditProfileView extends StatefulWidget {

@@ -1,10 +1,10 @@
 import 'package:dynamic_color/dynamic_color.dart';
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/core/controller.dart';
-import 'package:fl_clash/database/database.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/state.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/core/controller.dart';
+import 'package:aurora/database/database.dart';
+import 'package:aurora/enum/enum.dart';
+import 'package:aurora/models/models.dart';
+import 'package:aurora/state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';

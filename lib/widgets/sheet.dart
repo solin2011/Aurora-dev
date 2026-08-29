@@ -1,8 +1,8 @@
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/models/common.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/widgets/inherited.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/models/common.dart';
+import 'package:aurora/providers/app.dart';
+import 'package:aurora/state.dart';
+import 'package:aurora/widgets/inherited.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

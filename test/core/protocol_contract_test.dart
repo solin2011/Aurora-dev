@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:fl_clash/core/event.dart';
-import 'package:fl_clash/core/desktop/model.dart';
-import 'package:fl_clash/core/interface.dart';
-import 'package:fl_clash/core/method.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:aurora/core/event.dart';
+import 'package:aurora/core/desktop/model.dart';
+import 'package:aurora/core/interface.dart';
+import 'package:aurora/core/method.dart';
+import 'package:aurora/enum/enum.dart';
+import 'package:aurora/models/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class _RecordingCoreHandler extends CoreHandlerInterface {

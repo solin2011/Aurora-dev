@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:fl_clash/common/migration.dart';
-import 'package:fl_clash/models/models.dart';
+import 'package:aurora/common/migration.dart';
+import 'package:aurora/models/models.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

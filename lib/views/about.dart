@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:fl_clash/common/common.dart';
-import 'package:fl_clash/l10n/l10n.dart';
-import 'package:fl_clash/providers/providers.dart';
-import 'package:fl_clash/state.dart';
-import 'package:fl_clash/widgets/list.dart';
-import 'package:fl_clash/widgets/scaffold.dart';
+import 'package:aurora/common/common.dart';
+import 'package:aurora/l10n/l10n.dart';
+import 'package:aurora/providers/providers.dart';
+import 'package:aurora/state.dart';
+import 'package:aurora/widgets/list.dart';
+import 'package:aurora/widgets/scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -50,7 +50,7 @@ class AboutView extends StatelessWidget {
         ListItem(
           title: const Text('Telegram'),
           onTap: () {
-            globalState.openUrl('https://t.me/FlClash');
+            globalState.openUrl('https://t.me/Aurora');
           },
           trailing: const Icon(Icons.launch),
         ),
@@ -65,7 +65,7 @@ class AboutView extends StatelessWidget {
           title: Text(appLocalizations.core),
           onTap: () {
             globalState.openUrl(
-              'https://github.com/chen08209/Clash.Meta/tree/FlClash',
+              'https://github.com/chen08209/Clash.Meta/tree/Aurora',
             );
           },
           trailing: const Icon(Icons.launch),

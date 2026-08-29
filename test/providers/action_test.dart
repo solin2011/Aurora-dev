@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:fl_clash/core/desktop/model.dart';
-import 'package:fl_clash/enum/enum.dart';
-import 'package:fl_clash/models/models.dart';
-import 'package:fl_clash/providers/action.dart';
-import 'package:fl_clash/providers/app.dart';
-import 'package:fl_clash/providers/config.dart';
-import 'package:fl_clash/providers/database.dart';
-import 'package:fl_clash/providers/state.dart';
+import 'package:aurora/core/desktop/model.dart';
+import 'package:aurora/enum/enum.dart';
+import 'package:aurora/models/models.dart';
+import 'package:aurora/providers/action.dart';
+import 'package:aurora/providers/app.dart';
+import 'package:aurora/providers/config.dart';
+import 'package:aurora/providers/database.dart';
+import 'package:aurora/providers/state.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:riverpod/riverpod.dart';
 

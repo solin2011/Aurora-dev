@@ -7,12 +7,12 @@ cask "flclash" do
     sha256 arm:   "ARM_SHA256",
            intel: "AMD_SHA256"
 
-    url "https://github.com/chen08209/FlClash/releases/download/v#{version}/FlClash-#{version}-macos-#{arch}.dmg"
+    url "https://github.com/chen08209/Aurora/releases/download/v#{version}/Aurora-#{version}-macos-#{arch}.dmg"
   end
 
-  name "FlClash"
+  name "Aurora"
   desc "Multi-platform proxy client based on ClashMeta"
-  homepage "https://github.com/chen08209/FlClash"
+  homepage "https://github.com/chen08209/Aurora"
 
   livecheck do
     url :url
@@ -21,11 +21,11 @@ cask "flclash" do
 
   depends_on :macos
 
-  app "FlClash.app"
+  app "Aurora.app"
 
   postflight do
     system_command "xattr",
-                   args: ["-rd", "com.apple.quarantine", "#{appdir}/FlClash.app"]
+                   args: ["-rd", "com.apple.quarantine", "#{appdir}/Aurora.app"]
   end
 
   uninstall quit: "com.aurora.vpn"
