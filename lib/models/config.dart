@@ -77,6 +77,7 @@ abstract class AppSettingProps with _$AppSettingProps {
     @Default(true) bool autoCheckUpdate,
     @Default(false) bool showLabel,
     @Default(false) bool disclaimerAccepted,
+    // Crashlytics 相关字段保留但不再使用
     @Default(false) bool crashlyticsTip,
     @Default(false) bool crashlytics,
     @Default(true) bool minimizeOnExit,
