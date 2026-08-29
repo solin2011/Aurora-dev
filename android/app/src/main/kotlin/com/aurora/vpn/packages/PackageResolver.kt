@@ -86,9 +86,7 @@ internal class PackageResolver(
     }
 
     private fun scanArchive(sourcePath: String): Boolean = ZipFile(File(sourcePath)).use { archive ->
-        if (archive.entries().asSequence().any { it.name.startsWith("firebase-") }) {
-            return false
-        }
+        // Firebase 检测已移除
         archive.entries().asSequence()
             .filter { entry ->
                 entry.name.startsWith("classes") && entry.name.endsWith(".dex")
