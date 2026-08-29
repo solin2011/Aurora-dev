@@ -191,7 +191,8 @@ object ServiceState {
     }
 
     private fun applySharedState() {
-        GlobalState.setCrashlytics(sharedState.crashlytics)
+        // Crashlytics 功能已移除
+        // GlobalState.setCrashlytics(sharedState.crashlytics)
         ServiceConfig.updateNotificationParams(
             NotificationParams(
                 title = sharedState.currentProfileName,

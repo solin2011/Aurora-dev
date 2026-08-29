@@ -121,7 +121,8 @@ class AppPlugin : FlutterPlugin, MethodChannel.MethodCallHandler, ActivityAware 
             }
 
             "didCrashOnPreviousExecution" -> {
-                result.success(GlobalState.didCrashOnPreviousExecution())
+                // Crashlytics 功能已移除，始终返回 false
+                result.success(false)
             }
 
             else -> {
