@@ -65,7 +65,7 @@ class AboutView extends StatelessWidget {
           title: Text(appLocalizations.core),
           onTap: () {
             globalState.openUrl(
-              'https://github.com/chen08209/Clash.Meta/tree/Aurora',
+              'https://github.com/chen08209/Aurora.Meta/tree/Aurora',
             );
           },
           trailing: const Icon(Icons.launch),

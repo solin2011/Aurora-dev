@@ -1,4 +1,4 @@
-[submodule "core/Clash.Meta"]
-	path = core/Clash.Meta
-	url = https://github.com/solin2011/Clash.Meta.git
+[submodule "core/Aurora.Meta"]
+	path = core/Aurora.Meta
+	url = https://github.com/solin2011/Aurora.Meta.git
 	branch = Aurora
